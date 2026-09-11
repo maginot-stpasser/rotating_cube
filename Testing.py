@@ -30,6 +30,37 @@ import matplotlib.pyplot as plt
 # plt.ioff()
 # plt.show()
 
+# # matplotlib
+# vector1 = np.array([[10], [10], [0]])
+# vector1_ori = np.array([[10], [-10], [0]])
+
+# plt.ion()
+
+# # fig, ax = plt.subplots(1, 1)
+# fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+
+# # q = ax.quiver(0, 0, 0, vector1[0], vector1[1], vector1[2])
+# ax.set_aspect('equal', adjustable='box') 
+# ax.set_xlim(-50, 50)
+# ax.set_ylim(-50, 50)
+# ax.set_zlim(-50, 50)
+# plt.show()
+
+# for i in range(720):
+# # while True:
+#     q = ax.quiver(vector1_ori[0], vector1_ori[1], vector1_ori[2], vector1[0], vector1[1], vector1[2])
+#     currAng = currentAngle(i)
+#     vector1 = fullRotateED(vector1, currAng[0], currAng[1], currAng[2])
+#     vector1_ori = fullRotateED(vector1_ori, currAng[0], currAng[1], currAng[2])
+#     # q.set_UVC(vector1[0], vector1[1], vector1[2])
+#     plt.draw()
+#     plt.pause(0.01)
+#     q.remove()
+    
+# plt.ioff()
+# plt.show()
+
+
 def matPlotCubeInstance(dict_temp, ax = plt.subplot()):
     colourSet = {0:'grey', 1:'red', 2:'green', 3:'blue', 4:'black', 5:'#FF5733'}
 
@@ -48,7 +79,4 @@ def matPlotCubeInstance(dict_temp, ax = plt.subplot()):
         plt.xlabel("X Axis")
         plt.ylabel("Y Axis")
         
-        
-        # 4. Display the plot
-        # plt.show()
 
