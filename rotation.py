@@ -1,9 +1,9 @@
 import numpy as np;
 import time
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import math
-import opensimplex
+# import opensimplex
 # from skimage.draw import polygon
 
 # import os
@@ -23,7 +23,7 @@ def threeDRotate(arr, a, b, c):
                          [-(cosB * sinC), (sinB), (cosB * cosC)]])
     return temp_arr @ arr
 
-def smoothRandomController(t, tmp_noise): # Todo: smootthen the rotation, and it is awkward
+def smoothRandomController(t, tmp_noise=0): # Todo: smootthen the rotation, and it is awkward
     # Initialize the generator with an integer seed
     
     # noise2d evaluates smooth noise at a 2D coordinate (time, offset)
@@ -48,7 +48,7 @@ def getVertices(arr):
     faceInd = []
     res = {}
     for i in range(3):  
-        # only three faces will be shown at the same time when fixed 3d view point
+        # only three faces will be shown at the same time with fixed 3d view point looking into a 2d plane
         # find the faces to be shown, and get them indexed for the specific symbols
         if dotDegree(arr[:,i]):
             faceInd.append(2*i)
@@ -135,8 +135,9 @@ def main():
     t = 0
     while True:
         t += 1
-        tmp_noise = opensimplex.OpenSimplex(seed=int(0))
-        angles = smoothRandomController(t, tmp_noise)
+        # temp_noise = opensimplex.OpenSimplex(seed=int(0))
+        temp_noice = 0
+        angles = smoothRandomController(t, temp_noice)
         vecArr = threeDRotate(vecArr, angles[2], angles[0], angles[1])
         VertexVecs = getVertices(vecArr) # {1: [array([0.01449601, 5.33953401, 4.63564089]), array([-6.93831105,  0.90474558, -1.02042891]), array([-2.49763847,  6.33701242, -1.89844031]), array([-4.42617657, -0.09273283,  5.51365229])], ...}
         printPolygon(VertexVecs, GRID_SIZE)

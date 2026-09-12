@@ -6,7 +6,7 @@
 - ```Control + C``` to stop the programme
 
 ## Todo
-1. ~~Rotation smoothening~~
+1. Rotation smoothening
     - constants set
     - future may add a rotation axis, together with noice
 2. ~~Arr of "pixels" being brute for now~~
